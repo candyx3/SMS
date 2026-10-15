@@ -17,9 +17,7 @@ function App() {
 
   function addStudent(e) {
     e.preventDefault();
-    setStudents([...students,{id: students.length ? Math.max(...students.map(s => s.id)) + 1:1,name: name.trim(),course: course
-    }]);
-
+    setStudents([...students, {id: students.length ? Math.max(...students.map(s => s.id)) + 1: 1,name: name.trim(),course: course}]);
     setName("");
     setCourse("React");
     setMessage("");
@@ -38,19 +36,11 @@ function App() {
     <div className="container">
       <h1>Student Management Dashboard</h1>
       <h3>Total Students: {students.length}</h3>
-
       <h2>Search Student</h2>
       <input placeholder="Search by name" value={search} onChange={e => setSearch(e.target.value)}/>
-
       <form onSubmit={addStudent}>
         <h2>Add Student</h2>
-
-        <input
-          placeholder="Student name"
-          value={name}
-          onChange={e => setName(e.target.value)}
-        />
-
+        <input placeholder="Student name" value={name} onChange={e => setName(e.target.value)}/>
         <select value={course} onChange={e => setCourse(e.target.value)}>
           <option>React</option>
           <option>Java</option>
@@ -59,10 +49,8 @@ function App() {
           <option>Full Stack Web Development</option>
           <option>Software Testing</option>
         </select>
-
         <button>Add Student</button>
       </form>
-
       <h2>Filter by Course</h2>
       <select value={filter} onChange={e => setFilter(e.target.value)}>
         <option>All Courses</option>
@@ -73,7 +61,6 @@ function App() {
         <option>Full Stack Web Development</option>
         <option>Software Testing</option>
       </select>
-
       <table>
         <thead>
           <tr>
@@ -83,7 +70,6 @@ function App() {
             <th>Action</th>
           </tr>
         </thead>
-
         <tbody>
           {result.map(s => (
             <tr key={s.id}>
@@ -104,5 +90,4 @@ function App() {
     </div>
   );
 }
-
 export default App
